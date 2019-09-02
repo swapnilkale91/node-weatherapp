@@ -22,7 +22,7 @@ app.use(express.static(publicDir))
 app.get('', (req, res) => {
     res.render('index', {
         name: 'Swapnil Kale',
-        title: 'Weather app'
+        title: 'Weather'
     })
 })
 
@@ -35,7 +35,9 @@ app.get('/about',(req, res) => {
 
 app.get('/help',(req, res) => {
     res.render('help', {
-        helpText: 'Help me adding content to my website'
+        name: 'Swapnil Kale',
+        helpText: 'Just a regular help page',
+        title: 'Help'
     })
 })
 
@@ -46,17 +48,20 @@ app.get('/weather',(req, res) => {
         return res.send({errorMsg: 'Please provide an address'})
 
     geocode(req.query.address, (error, {latitude, longitude, location}={}) => {
-
-        if(error) {
-            return res.send({errorMsg: 'Please provide an address'})
-        } else {
-            forecast(latitude, longitude , (error, forecastData) => {
-                if(error) 
-                    return res.send(error)
-                
-                    return res.send({location, forecastData})
-            })
+        if (error) {
+            return res.send({ error })
         }
+        forecast(latitude, longitude, (error, forecastData) => {
+            if (error) {
+                return res.send({ error })
+            }
+
+            res.send({
+                forecast: forecastData,
+                location,
+                address: req.query.address
+            })
+        })
     })
 })
 

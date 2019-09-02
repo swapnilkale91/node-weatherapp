@@ -1,6 +1,7 @@
 body {
     color: #333333;
     font-family: arial;
+    max-width: 400px;
     margin: 0 auto;
     padding: 0 16px;
 
@@ -26,7 +27,7 @@ header {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 64px;
     margin-bottom: 16px;
 }
 
@@ -40,13 +41,9 @@ header a {
     width: 250px;
 }
 
-p {
-    font-family: arial;
-}
-
 input {
     border: 1px solid #cccccc;
-    padding: 8px
+    padding: 8px;
 }
 
 button {
@@ -54,5 +51,5 @@ button {
     border: 1px solid #888888;
     background: #888888;
     color: white;
-    padding: 8px
+    padding: 8px;
 }
