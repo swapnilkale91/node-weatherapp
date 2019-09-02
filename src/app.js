@@ -9,9 +9,8 @@ const publicDir = path.join(__dirname, '../public')
 const viewsPath =  path.join(__dirname, './templates/views')
 const partialsPath =  path.join(__dirname, './templates/partials')
 
-
-console.log(__dirname)
-console.log(path.join(__dirname, '../public'))
+// console.log(__dirname)
+// console.log(path.join(__dirname, '../public'))
 
 app.set('view engine','hbs')
 app.set('views', viewsPath)
